@@ -1,13 +1,73 @@
-.profile-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px;
-  background: linear-gradient(135deg, #8a7db3 0%, #a3bcd3 100%);
+// Archivo SCSS para una página en blanco con fondo degradado
+.blank-page {
+  background: linear-gradient(135deg, #5a73a8 0%, #7b87b2 100%); // Fondo morado-azul más oscuro
   min-height: 100vh;
-  color: #3e3e3e;
-  margin: 0;
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  padding: 16px;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+// Estilo para las pestañas
+ion-tabs {
+  --ion-background-color: transparent;
+
+  ion-tab-bar {
+    background: linear-gradient(135deg, #5a73a8 0%, #7b87b2 100%); // Fondo degradado más oscuro
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    height: 70px; // Ajuste de altura
+    display: flex;
+    align-items: center;
+
+    ion-tab-button {
+      --color: #ffffff; // Color del texto
+      --color-selected: #ffdd57; // Color activo
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      ion-icon {
+        font-size: 1.8rem;
+      }
+
+      ion-label {
+        font-size: 0.85rem;
+        margin-top: 4px;
+      }
+    }
+
+    ion-tab-button.tab-selected {
+      background: rgba(255, 255, 255, 0.2); // Resaltar la pestaña activa con mayor contraste
+      border-radius: 12px;
+      padding: 6px 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Fondo para contenido vacío y listas
+ion-content {
+  --background: linear-gradient(135deg, #8a7db3 0%, #a3bcd3 100%); // Fondo en tonos consistentes con listas
 }
 
 .custom-list {

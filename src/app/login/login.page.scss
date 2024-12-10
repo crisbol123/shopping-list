@@ -1,28 +1,91 @@
 .login-form {
-    max-width: 400px;
-    margin: 0 auto;
+  background: linear-gradient(135deg, #6c92d0 0%, #9da0c8 100%); // Fondo más vibrante en tonos morado-azul
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-background {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-header {
+  margin-bottom: 24px;
+
+  ion-icon {
+    font-size: 5rem;
+    color: #ffffff;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
-  
-  ion-card {
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+  h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: #333333; // Cambiado a negro oscuro
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
-  
-  ion-card-title {
+
+  p {
+    font-size: 1.2rem;
+    color: #555555; // Cambiado a gris oscuro
+    margin: 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  ion-card-header {
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+
+    ion-card-title {
+      font-size: 1.5rem;
+      color: #4d4d4d;
+    }
   }
-  
+
   ion-item {
+    --background: rgba(255, 255, 255, 0.9);
+    --color: #4d4d4d;
+    border-radius: 8px;
     margin-bottom: 16px;
   }
-  
+
   ion-text {
+    font-size: 0.9rem;
+    margin: 4px 0 12px;
     display: block;
-    font-size: 14px;
-    margin-top: 4px;
+    color: #ff6b6b; // Rojo pastel para errores
   }
-  
+}
+
+.login-button {
+  --background: linear-gradient(135deg, #98b3e9, #b3c9ff); // Azul pastel suave
+  --background-hover: linear-gradient(135deg, #86a6d7, #a6bcff);
+  --border-radius: 8px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-top: 16px;
+  color: #ffffff;
+}

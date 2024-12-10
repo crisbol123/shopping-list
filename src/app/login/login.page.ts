@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonInput, IonText, IonButton } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonInput, IonText, IonButton, IonIcon } from '@ionic/angular/standalone'; // Agregamos IonIcon
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -10,7 +10,25 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonButton, ReactiveFormsModule,IonText, IonInput, IonLabel, IonItem, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    IonButton,
+    ReactiveFormsModule,
+    IonText,
+    IonInput,
+    IonLabel,
+    IonItem,
+    IonCardContent,
+    IonCardTitle,
+    IonCardHeader,
+    IonCard,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonIcon, // Importamos IonIcon
+    CommonModule,
+    FormsModule
+  ]
 })
 export class LoginPage implements OnInit {
 
@@ -20,7 +38,8 @@ export class LoginPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService  ) {}
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -39,9 +58,7 @@ export class LoginPage implements OnInit {
           await this.router.navigate(['tabs/elements-list']);
         },
         async () => {
-        
           this.loginError = true;
-
         }
       );
     }
