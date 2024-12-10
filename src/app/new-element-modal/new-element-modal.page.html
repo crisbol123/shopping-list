@@ -1,13 +1,26 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>new-element-modal</ion-title>
+    <ion-title>Nueva Lista</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">new-element-modal</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <form (ngSubmit)="saveList()">
+    <ion-item>
+      <ion-label position="floating">Nombre de la Lista</ion-label>
+      <ion-input [(ngModel)]="newItem.nombre" name="nombre" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Sitio</ion-label>
+      <ion-select [(ngModel)]="newItem.sitio" name="sitio" required>
+        <ion-select-option *ngFor="let sitio of sitios" [value]="sitio.nombre">{{ sitio.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-footer>
+      <ion-button expand="block" type="submit">Guardar</ion-button>
+      <ion-button expand="block" color="danger" (click)="dismiss()">Cancelar</ion-button>
+    </ion-footer>
+  </form>
 </ion-content>

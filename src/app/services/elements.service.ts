@@ -7,6 +7,10 @@ export interface ElementoLista {
   sitio: string;
   idLista: number;
 }
+export interface Sitio {
+  id: number;
+  nombre: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -28,8 +32,9 @@ export class ElementsService {
     return this.http.get<any>(`${this.apiUrl}/get/${idLista}`);
   }
  
-  saveElement(element: ElementoLista): ElementoLista {
-    return element;
+  saveElement(element: ElementoLista): Observable<ElementoLista> {
+    element.idLista = parseInt(this.idListaSubject.getValue());
+    return this.http.post<ElementoLista>(`${this.apiUrl}/add`, element);
   }
   deleteElement(id: number): void {
     return;
