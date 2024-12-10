@@ -1,28 +1,96 @@
-ion-item-sliding {
-    margin-bottom: 10px;  
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #8a7db3 0%, #a3bcd3 100%);
+  min-height: 100vh;
+  color: #3e3e3e;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.custom-list {
+  background: linear-gradient(135deg, #8a7db3 0%, #a3bcd3 100%);
+  padding: 16px;
+
+  ion-item {
+    --background: rgba(255, 255, 255, 0.9);
+    --color: #4d4d4d;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+
+    &.comprado {
+      --background: rgba(173, 230, 173, 0.9); // Verde suave para elementos comprados
+      --color: #2f4f4f;
+
+      h2 {
+        text-decoration: line-through;
+        color: #2f4f4f;
+      }
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #6b6b6b;
+    }
   }
-  
-  ion-item-options {
-    --background: #f8f8f8;  
-  }
-  
+
   ion-item-option {
-    --border-radius: 8px;
-    padding: 10px;
-  }
+    --color: #fff;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
 
-ion-item {
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
- 
-  ion-item.comprado {
-    background-color: #d4edda;
-    color: #155724; 
-  }
-  
+    &[color="primary"] {
+      --background: linear-gradient(135deg, #98b3e9, #b3c9ff); // Azul pastel suave
+      --background-hover: linear-gradient(135deg, #86a6d7, #a6bcff);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      border: 1px solid #ffffff;
+    }
 
-  ion-item.comprado {
-    border-left: 5px solid #28a745; 
-    box-shadow: 0px 4px 6px rgba(40, 167, 69, 0.2); 
+    &[color="success"] {
+      --background: linear-gradient(135deg, #a8e5b5, #c4f1cc); // Verde pastel suave
+      --background-hover: linear-gradient(135deg, #96d4a3, #b2e3ba);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      border: 1px solid #ffffff;
+    }
+
+    &[color="danger"] {
+      --background: linear-gradient(135deg, #f8a5a5, #fcbcbc); // Rojo pastel suave
+      --background-hover: linear-gradient(135deg, #e79595, #f3abab);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      border: 1px solid #ffffff;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+
+  ion-spinner {
+    margin-bottom: 12px;
+  }
+}

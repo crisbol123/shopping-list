@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Elementos de la Lista</ion-title>
     <ion-buttons slot="end">
@@ -7,14 +7,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="!isLoading">
-  <ion-list>
-    <ion-item-sliding *ngFor="let element of elements" >
+<ion-content [fullscreen]="true" [ngClass]="{'loading': isLoading}">
+  <!-- Spinner mientras carga -->
+  <div *ngIf="isLoading" class="loading-container">
+    <ion-spinner name="crescent"></ion-spinner> Cargando...
+  </div>
+
+  <!-- Lista de Elementos -->
+  <ion-list *ngIf="!isLoading" class="custom-list">
+    <ion-item-sliding *ngFor="let element of elements">
       <ion-item [ngClass]="{'comprado': element.comprado}">
-        <ion-label>{{ element.nombre }}</ion-label> 
-        <ion-label>{{ element.sitio || 'Sin sitio asignado' }}</ion-label>
+        <ion-label>
+          <h2>{{ element.nombre }}</h2>
+          <p>{{ element.sitio || 'Sin sitio asignado' }}</p>
+        </ion-label>
       </ion-item>
 
+      <!-- Opciones de cada elemento -->
       <ion-item-options side="end">
         <ion-item-option (click)="toggleComprado(element)" [color]="element.comprado ? 'success' : 'primary'">
           <ion-icon slot="start" name="checkmark-circle"></ion-icon>
@@ -28,8 +37,4 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-</ion-content>
-
-<ion-content *ngIf="isLoading">
-  <ion-spinner name="crescent"></ion-spinner> Cargando...
 </ion-content>
