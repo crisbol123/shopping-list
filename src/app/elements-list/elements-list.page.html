@@ -1,0 +1,21 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Elementos de la Lista</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="newElement()">+</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!isLoading">
+  <ion-list>
+    <ion-item *ngFor="let element of elements">
+      <ion-label>{{ element.nombre }}</ion-label> 
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-content *ngIf="isLoading">
+  <ion-spinner name="crescent"></ion-spinner> Cargando...
+</ion-content>
