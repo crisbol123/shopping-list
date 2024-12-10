@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ListService, ListaCompra } from '../services/list.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ElementoLista } from '../services/elements.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-new-list-modal',
   standalone: true,
@@ -13,16 +14,15 @@ import { ElementoLista } from '../services/elements.service';
   styleUrls: ['./new-list-modal.component.scss'],
 })
 export class NewListModalComponent {
-  newItem: ElementoLista = {
+  newItem: ListaCompra = {
     id: 0,
     nombre: '',
-    sitio: '',
-    idLista: 0,
+    fecha: new Date().toISOString(),
   };
 
   constructor(
     private modalCtrl: ModalController,
-    private listService: ListService
+    private listService: ListService, private router: Router
   ) {}
 
   saveList() {

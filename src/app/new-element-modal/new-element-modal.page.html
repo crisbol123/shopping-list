@@ -1,26 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Nueva Lista</ion-title>
-  </ion-toolbar>
-</ion-header>
+<form [formGroup]="form" (ngSubmit)="saveElement()">
+  <ion-item>
+    <ion-label position="floating">Nombre del elemento</ion-label>
+    <ion-input type="text" formControlName="nombre" required></ion-input>
+  </ion-item>
 
-<ion-content>
-  <form (ngSubmit)="saveList()">
-    <ion-item>
-      <ion-label position="floating">Nombre de la Lista</ion-label>
-      <ion-input [(ngModel)]="newItem.nombre" name="nombre" required></ion-input>
-    </ion-item>
+  <ion-item>
+    <ion-label position="floating">Sitio</ion-label>
+    <ion-select formControlName="sitio">
+      <ion-select-option *ngFor="let sitio of sitios" [value]="sitio.id">
+        {{ sitio.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Sitio</ion-label>
-      <ion-select [(ngModel)]="newItem.sitio" name="sitio" required>
-        <ion-select-option *ngFor="let sitio of sitios" [value]="sitio.nombre">{{ sitio.nombre }}</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-    <ion-footer>
-      <ion-button expand="block" type="submit">Guardar</ion-button>
-      <ion-button expand="block" color="danger" (click)="dismiss()">Cancelar</ion-button>
-    </ion-footer>
-  </form>
-</ion-content>
+  <ion-footer>
+    <ion-button expand="block" type="submit">Guardar</ion-button>
+    <ion-button expand="block" color="danger" (click)="dismiss()">Cancelar</ion-button>
+  </ion-footer>
+</form>
