@@ -2,20 +2,31 @@
   <ion-toolbar>
     <ion-title>Nuevo Sitio</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="dismiss()">Cancelar</ion-button>
+      <ion-button fill="outline" class="cancel-toolbar-button" (click)="dismiss()">Cancelar</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <form [formGroup]="form" (ngSubmit)="saveSite()">
-    <ion-item>
+<ion-content class="form-full-screen">
+  <!-- Título Principal -->
+  <h1 class="form-title">Agregar Nuevo Sitio</h1>
+
+  <!-- Formulario -->
+  <form [formGroup]="form" (ngSubmit)="saveSite()" class="form-container">
+    <!-- Campo Nombre del Sitio -->
+    <ion-item class="custom-item">
       <ion-label position="floating">Nombre del Sitio</ion-label>
       <ion-input type="text" formControlName="nombre" required></ion-input>
     </ion-item>
 
-    <ion-footer>
-      <ion-button expand="block" type="submit" [disabled]="form.invalid">Guardar</ion-button>
-    </ion-footer>
+    <!-- Botones -->
+    <div class="button-group">
+      <ion-button expand="block" type="submit" [disabled]="form.invalid" class="primary-button">
+        Guardar
+      </ion-button>
+      <ion-button expand="block" class="cancel-button" (click)="dismiss()">
+        Cancelar
+      </ion-button>
+    </div>
   </form>
 </ion-content>
