@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonItem, IonText, IonSpinner } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonItem, IonText, IonSpinner, IonButton } from '@ionic/angular/standalone';
 import { Usuario, UsuarioService } from '../services/usuario.service';
 
 @Component({
@@ -9,10 +9,24 @@ import { Usuario, UsuarioService } from '../services/usuario.service';
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
-  imports: [IonSpinner, IonText, IonItem, IonLabel, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    IonSpinner,
+    IonText,
+    IonItem,
+    IonLabel,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonButton, // Asegúrate de incluir IonButton aquí
+    CommonModule,
+    FormsModule
+  ]
 })
 export class ProfilePage implements OnInit {
   usuario: Usuario | null = null;
+  telefonoVisible: boolean = false;
+  cedulaVisible: boolean = false;
 
   constructor(private usuarioService: UsuarioService) {}
 
@@ -31,5 +45,4 @@ export class ProfilePage implements OnInit {
       },
     });
   }
-
 }

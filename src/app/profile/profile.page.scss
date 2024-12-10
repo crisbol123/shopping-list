@@ -1,0 +1,96 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background: linear-gradient(135deg, #8a7db3 0%, #a3bcd3 100%); // Combinación de morado y azul pastel
+    min-height: 100vh;
+    color: #3e3e3e; // Texto ligeramente más oscuro
+    margin: 0; // Asegúrate de que no haya margen extra
+    box-sizing: border-box; // Elimina bordes y padding del contenedor
+  }
+  
+  .profile-header {
+    text-align: center;
+    margin-bottom: 24px;
+  
+    .profile-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto;
+      border: 2px solid #fff;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  
+    h2 {
+      margin: 12px 0 0;
+      font-size: 1.8rem;
+      color: #4d4d4d;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .profile-info {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 16px;
+  
+    .info-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: rgba(160, 190, 215, 0.9); // Fondo azul pastel combinado con morado
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      color: #3e3e3e;
+      backdrop-filter: blur(5px);
+  
+      strong {
+        font-weight: bold;
+        color: #4d4c7d; // Tono morado ligeramente más oscuro
+      }
+  
+      span {
+        color: #505d73;
+        font-size: 0.95rem;
+      }
+    }
+  }
+  
+  // Estilo para los botones "Mostrar"
+  ion-button, .toggle-button {
+    --background: rgba(120, 145, 184, 0.8); // Fondo azul pastel suave
+    --background-hover: rgba(140, 165, 207, 1); // Fondo más claro al pasar el mouse
+    --border-radius: 4px; // Bordes redondeados
+    --box-shadow: none; // Eliminar sombra
+    --focus-border-color: transparent; // Eliminar borde azul al seleccionar
+    color: #4d4d4d; // Texto más oscuro
+    font-weight: bold;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  
+    &:hover {
+      --background: rgba(140, 165, 207, 1); // Fondo más claro al pasar el mouse
+    }
+  }
+  
+  .hidden-data {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  
+  .hidden-data.visible {
+    visibility: visible;
+    opacity: 1;
+  }

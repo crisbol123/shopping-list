@@ -11,31 +11,42 @@
     </ion-toolbar>
   </ion-header>
 
-  <div *ngIf="usuario; else loading">
-    <ion-item>
-      <ion-label>Nombre</ion-label>
-      <ion-text>{{ usuario.nombre }}</ion-text>
-    </ion-item>
+  <div class="profile-container" *ngIf="usuario; else loading">
+    <!-- Foto y Nombre -->
+    <div class="profile-header">
+      <div class="profile-image">
+        <img src="assets/img/Profile.png" alt="Usuario" />
+      </div>
+      <h2>{{ usuario.nombre }}</h2>
+    </div>
 
-    <ion-item>
-      <ion-label>Correo</ion-label>
-      <ion-text>{{ usuario.correo }}</ion-text>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Teléfono</ion-label>
-      <ion-text>{{ usuario.telefono }}</ion-text>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Cédula</ion-label>
-      <ion-text>{{ usuario.cedula }}</ion-text>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Rol</ion-label>
-      <ion-text>{{ usuario.rol }}</ion-text>
-    </ion-item>
+    <!-- Información del Usuario -->
+    <div class="profile-info">
+      <div class="info-item">
+        <strong>Correo:</strong> <span>{{ usuario.correo }}</span>
+      </div>
+      <div class="info-item">
+        <strong>Teléfono:</strong>
+        <span class="hidden-data" [class.visible]="telefonoVisible">
+          {{ usuario.telefono }}
+        </span>
+        <ion-button size="small" fill="outline" (click)="telefonoVisible = !telefonoVisible">
+          {{ telefonoVisible ? 'Ocultar' : 'Mostrar' }}
+        </ion-button>
+      </div>
+      <div class="info-item">
+        <strong>Cédula:</strong>
+        <span class="hidden-data" [class.visible]="cedulaVisible">
+          {{ usuario.cedula }}
+        </span>
+        <ion-button size="small" fill="outline" (click)="cedulaVisible = !cedulaVisible">
+          {{ cedulaVisible ? 'Ocultar' : 'Mostrar' }}
+        </ion-button>
+      </div>
+      <div class="info-item">
+        <strong>Rol:</strong> <span>{{ usuario.rol }}</span>
+      </div>
+    </div>
   </div>
 
   <ng-template #loading>
