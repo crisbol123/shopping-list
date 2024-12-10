@@ -4,7 +4,7 @@ import { TabsPage } from './tabs/tabs.page';
 export const routes: Routes =[
 {
     path: '',
-    redirectTo: '/tabs/elements-list', 
+    redirectTo: 'login', 
     pathMatch: 'full',
   },
   {
@@ -38,5 +38,9 @@ export const routes: Routes =[
   {
     path: 'login',
     loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'new-element-modal',
+    loadComponent: () => import('./new-element-modal/new-element-modal.page').then( m => m.NewElementModalPage)
   },
 ];

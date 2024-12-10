@@ -7,13 +7,8 @@
 <ion-content>
   <form (ngSubmit)="saveList()">
     <ion-item>
-      <ion-label position="floating">Nombre del Producto</ion-label>
+      <ion-label position="floating">Nombre de la Lista</ion-label>
       <ion-input [(ngModel)]="newItem.nombre" name="nombre" required></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Sitio</ion-label>
-      <ion-input [(ngModel)]="newItem.sitio" name="sitio" required></ion-input>
     </ion-item>
 
     <ion-footer>

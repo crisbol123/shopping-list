@@ -32,7 +32,7 @@ export class NewListModalComponent {
       fecha: new Date().toISOString()
     };
 
-    this.listService.saveList(newList).subscribe((result) => {
+    this.listService.saveList(newList, localStorage.getItem('authToken') || '').subscribe((result) => {
       this.modalCtrl.dismiss(result);
     });
   }

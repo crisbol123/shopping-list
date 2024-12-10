@@ -15,16 +15,16 @@ export class ElementsListPage implements OnInit {
   elements: ElementoLista[] = []; 
   isLoading: boolean = true;
 
-  constructor(private listService: ListService) { }
+  constructor(private elementservice: ElementsService) { }
 
   ngOnInit() {
     
-    this.listService.setIdLista('123'); 
+    this.elementservice.setIdLista('4'); 
     this.fetchElements();
   }
 
   fetchElements() {
-    this.listService.getElementsByListId().subscribe({
+    this.elementservice.getElementsByListId().subscribe({
       next: (data) => {
         this.elements = data; 
         this.isLoading = false;

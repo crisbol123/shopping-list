@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 export interface ElementoLista {
   id: number;
   nombre: string;
@@ -11,10 +11,21 @@ export interface ElementoLista {
   providedIn: 'root'
 })
 export class ElementsService {
-  private apiUrl = 'https://localhost:8082/api/list';
+  private apiUrl = 'http://localhost:8082/api/element';
+  private idListaSubject: BehaviorSubject<string> = new BehaviorSubject<string>(''); 
+  public idLista$ = this.idListaSubject.asObservable(); 
+
+
+  setIdLista(idLista: string) {
+    this.idListaSubject.next(idLista); 
+  }
   constructor( private http: HttpClient) {}
-  getElementsByListId(idLista: number): Observable<ElementoLista[]> {
-   return this.http.get<ElementoLista[]>(`${this.apiUrl}/lists/${idLista}/items`);
+  getElementsByListId(): Observable<any> {
+    const idLista = this.idListaSubject.getValue(); 
+    if (!idLista) {
+      throw new Error('idLista no está definido');
+    }
+    return this.http.get<any>(`${this.apiUrl}/get/${idLista}`);
   }
  
   saveElement(element: ElementoLista): ElementoLista {

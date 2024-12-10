@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
         async (response) => {
           const token = response.token;
           localStorage.setItem('authToken', token);
-          await this.router.navigate(['main-menu']);
+          await this.router.navigate(['tabs/elements-list']);
         },
         async () => {
         

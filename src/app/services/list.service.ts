@@ -11,33 +11,30 @@ fecha: string;
 })
 export class ListService {
 
-  private apiUrl = 'https://localhost:8082/api/list';
-  private idListaSubject: BehaviorSubject<string> = new BehaviorSubject<string>(''); 
-  public idLista$ = this.idListaSubject.asObservable(); 
+  private apiUrl = 'http://localhost:8082/api/list';
+
   constructor(private http: HttpClient) {}
 
 
-  setIdLista(idLista: string) {
-    this.idListaSubject.next(idLista); 
-  }
+ 
 
-  getElementsByListId(): Observable<any> {
-    const idLista = this.idListaSubject.getValue(); 
-    if (!idLista) {
-      throw new Error('idLista no está definido');
-    }
-    return this.http.get<any>(`${this.apiUrl}/lists/${idLista}/items`);
-  }
+
   getAllLists(token:string): Observable<ListaCompra[]> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
     return this.http.get<ListaCompra[]>(`${this.apiUrl}/getAll`, { headers });
   }
-  saveList(list: ListaCompra): Observable<ListaCompra> {
-    return this.http.post<ListaCompra>(`${this.apiUrl}/save`, list);
+  saveList(list: ListaCompra, token:string): Observable<ListaCompra> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post<ListaCompra>(`${this.apiUrl}/add`, list, { headers });
   }
-  deleteList(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
+  deleteList(id: number, token:string): Observable<void> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`, { headers });
   }
 }

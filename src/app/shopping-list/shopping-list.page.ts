@@ -34,7 +34,7 @@ export class ShoppingListPage implements OnInit {
   }
 
   deleteList(id: number) {
-    this.listService.deleteList(id).subscribe(() => {
+    this.listService.deleteList(id, localStorage.getItem('authToken') || '').subscribe(() => {
       this.shoppingLists = this.shoppingLists.filter((list) => list.id !== id);
     });
   }
@@ -46,7 +46,7 @@ export class ShoppingListPage implements OnInit {
 
     modal.onDidDismiss().then((result) => {
       if (result.data) {
-        this.shoppingLists.push(result.data);
+        this.loadLists();
       }
     });
 
