@@ -7,6 +7,7 @@ import { ElementoLista, ElementsService, Sitio } from '../services/elements.serv
 import { SitioService } from '../services/sitio.service';
 import { Route, Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { NewSitioModalPage } from '../new-sitio-modal/new-sitio-modal.page';
 @Component({
   selector: 'app-new-element-modal',
   templateUrl: './new-element-modal.page.html',
@@ -34,7 +35,7 @@ constructor(
 
     this.form = this.fb.group({
       nombre: [''],
-      sitio: [''],
+      idSitio: [''],
     });
   }
   
@@ -42,6 +43,7 @@ constructor(
   loadSitios() {
     this.sitioService.getSitios().subscribe((data) => {
       this.sitios = data;
+      console.log(data);
     });
   }
   dismiss() {
@@ -57,10 +59,24 @@ saveElement() {
       ...this.form.value,
       idLista: 0,
     };
-
+console.log(newItem);
     this.elementService.saveElement(newItem).subscribe((data) => {
  this.modalCtrl.dismiss(data);
     });
   }
 } 
+
+openNewSiteModal() {
+  this.modalCtrl.create({
+    component: NewSitioModalPage
+  }).then((modal) => {
+    modal.onDidDismiss().then((result) => {
+      if (result.data) {
+        this.loadSitios();
+      }
+    });
+    modal.present();
+  });
+}
+
 }

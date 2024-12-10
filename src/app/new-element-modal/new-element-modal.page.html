@@ -6,11 +6,14 @@
 
   <ion-item>
     <ion-label position="floating">Sitio</ion-label>
-    <ion-select formControlName="sitio">
+    <ion-select formControlName="idSitio">
       <ion-select-option *ngFor="let sitio of sitios" [value]="sitio.id">
         {{ sitio.nombre }}
       </ion-select-option>
     </ion-select>
+    <ion-buttons slot="end">
+      <ion-button (click)="openNewSiteModal()">+</ion-button>
+    </ion-buttons>
   </ion-item>
 
   <ion-footer>

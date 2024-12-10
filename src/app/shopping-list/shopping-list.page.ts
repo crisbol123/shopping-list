@@ -6,7 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListaCompra, ListService } from '../services/list.service';
 import { NewListModalComponent } from '../new-list-modal/new-list-modal.component';
-import { Token } from '@angular/compiler';
+import { ElementSchemaRegistry, Token } from '@angular/compiler';
+import { ElementsService } from '../services/elements.service';
 @Component({
   selector: 'app-shopping-list',
   standalone: true,
@@ -19,7 +20,8 @@ export class ShoppingListPage implements OnInit {
 
   constructor(
     private listService: ListService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController, 
+    private elementService: ElementsService
   ) {}
 
   ngOnInit() {
@@ -51,6 +53,9 @@ export class ShoppingListPage implements OnInit {
     });
 
     return await modal.present();
+  }
+  seleccionarLista(id: number) {
+this.elementService.setIdLista(id);
   }
 }
 

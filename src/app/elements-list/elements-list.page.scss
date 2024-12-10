@@ -1,0 +1,28 @@
+ion-item-sliding {
+    margin-bottom: 10px;  
+  }
+  
+  ion-item-options {
+    --background: #f8f8f8;  
+  }
+  
+  ion-item-option {
+    --border-radius: 8px;
+    padding: 10px;
+  }
+
+ion-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+ 
+  ion-item.comprado {
+    background-color: #d4edda;
+    color: #155724; 
+  }
+  
+
+  ion-item.comprado {
+    border-left: 5px solid #28a745; 
+    box-shadow: 0px 4px 6px rgba(40, 167, 69, 0.2); 
+  }

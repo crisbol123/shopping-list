@@ -43,4 +43,8 @@ export const routes: Routes =[
     path: 'new-element-modal',
     loadComponent: () => import('./new-element-modal/new-element-modal.page').then( m => m.NewElementModalPage)
   },
+  {
+    path: 'new-sitio-modal',
+    loadComponent: () => import('./new-sitio-modal/new-sitio-modal.page').then( m => m.NewSitioModalPage)
+  },
 ];

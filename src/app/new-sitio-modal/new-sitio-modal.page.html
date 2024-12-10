@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nuevo Sitio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cancelar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="saveSite()">
+    <ion-item>
+      <ion-label position="floating">Nombre del Sitio</ion-label>
+      <ion-input type="text" formControlName="nombre" required></ion-input>
+    </ion-item>
+
+    <ion-footer>
+      <ion-button expand="block" type="submit" [disabled]="form.invalid">Guardar</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>
