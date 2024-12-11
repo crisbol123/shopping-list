@@ -1,9 +1,9 @@
 ion-content {
-  --background: linear-gradient(135deg, #5a73a8 0%, #7b87b2 100%); /* Fondo degradado */
+  background: linear-gradient(135deg, #5a73a8 0%, #7b87b2 100%); /* Fondo degradado */
 }
 
 ion-header ion-toolbar {
-  background: rgba(255, 255, 255, 0.1); /* Fondo transparente */
+  background: linear-gradient(135deg, rgba(90, 115, 168, 0.87) 0%, rgba(123, 135, 178, 0.87) 100%); /* Fondo transparente */
   color: #ffffff; /* Color blanco para el texto en el toolbar */
 }
 
@@ -15,7 +15,7 @@ ion-item {
   --background: rgba(255, 255, 255, 0.9); /* Fondo blanco translúcido para items */
   border-radius: 8px;
   margin-bottom: 12px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px rgba(49, 154, 240, 0.822);
 }
 
 ion-item ion-label h2 {
