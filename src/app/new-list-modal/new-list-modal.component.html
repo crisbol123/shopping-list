@@ -1,19 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Nueva Lista</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <form (ngSubmit)="saveList()">
-    <ion-item>
+
+<ion-content class="form-full-screen">
+  <!-- Título principal -->
+  <h1 class="form-title">Nueva Lista</h1>
+
+  <form (ngSubmit)="saveList()" class="form-container">
+    <!-- Campo de Nombre -->
+    <ion-item class="custom-item">
       <ion-label position="floating">Nombre de la Lista</ion-label>
       <ion-input [(ngModel)]="newItem.nombre" name="nombre" required></ion-input>
     </ion-item>
 
-    <ion-footer>
-      <ion-button expand="block" type="submit">Guardar</ion-button>
-      <ion-button expand="block" color="danger" (click)="dismiss()">Cancelar</ion-button>
-    </ion-footer>
+    <!-- Botones Guardar y Cancelar -->
+    <div class="button-group">
+      <ion-button expand="block" type="submit" class="primary-button">
+        Guardar
+      </ion-button>
+      <ion-button expand="block" class="cancel-button" (click)="dismiss()">
+        Cancelar
+      </ion-button>
+    </div>
   </form>
 </ion-content>

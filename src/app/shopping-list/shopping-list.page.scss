@@ -1,11 +1,35 @@
-ion-header {
-    ion-toolbar {
-      background: #3880ff;
-      color: rgb(10, 10, 10);
-    }
-  }
-  
-  ion-list {
-    margin: 16px;
-  }
-  
+ion-content {
+  --background: linear-gradient(135deg, #5a73a8 0%, #7b87b2 100%); /* Fondo degradado */
+}
+
+ion-header ion-toolbar {
+  background: rgba(255, 255, 255, 0.1); /* Fondo transparente */
+  color: #ffffff; /* Color blanco para el texto en el toolbar */
+}
+
+ion-title {
+  color: #4d4d4d; /* Asegura que el título siempre sea blanco */
+}
+
+ion-item {
+  --background: rgba(255, 255, 255, 0.9); /* Fondo blanco translúcido para items */
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+ion-item ion-label h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4d4d4d; /* Color del título dentro de cada item */
+}
+
+ion-item ion-label p {
+  font-size: 1rem;
+  color: #6b6b6b; /* Color de los párrafos dentro de cada item */
+}
+
+ion-buttons ion-button {
+  --color: #6b6b6b; /* Asegura que el color del texto de los botones sea blanco */
+  color: #6b6b6b; /* Para asegurar que el texto de los botones sea visible */
+}
